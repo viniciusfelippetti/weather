@@ -95,14 +95,18 @@ class Command(BaseCommand):
         options = Options()
         # Configura o diretório de download
         prefs = {
-            "download.default_directory": "/home/vinif",  # Substitua pelo caminho desejado
+            "download.default_directory": "/weather",  # Substitua pelo caminho desejado
             "download.prompt_for_download": False,
             "download.directory_upgrade": True,
             "safebrowsing.enabled": True
-        }  # Substitua pelo caminho desejado
+        }
         options.add_experimental_option("prefs", prefs)
+        options.add_argument("--headless")
+        options.add_argument("--no-sandbox")
+        options.add_argument("--disable-dev-shm-usage")
+        options.add_argument("--disable-gpu")
+        options.add_argument("--remote-debugging-port=9222")
 
-        # Inicializa o navegador
         browser = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
 
         browser.get('https://portal.inmet.gov.br/dadoshistoricos')
@@ -134,7 +138,8 @@ class Command(BaseCommand):
         link_element.click()
         time.sleep(20)
         # #
-        zip_dir = ''
+        zip_dir = '/weather'
+        print(zip_dir)
         extract_dir = '/extracted_files'  # Substitua pelo caminho desejado
         # #
         # Verifique se o diretório de destino existe e crie-o se necessário
