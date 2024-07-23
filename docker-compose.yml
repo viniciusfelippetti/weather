@@ -16,7 +16,6 @@ services:
       - "8000:8000"
     environment:
       - DEBUG=1
-      - SECRET_KEY=django-insecure-5tdttw#cmgkauonyz)4@$0*ola9bkuol0jvi)#j6q_)sq1$6n-
       - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
       - SQL_ENGINE=django.db.backends.postgresql
       - SQL_DATABASE=weather
