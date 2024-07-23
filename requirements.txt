@@ -41,7 +41,6 @@ sqlparse==0.5.1
 statsmodels==0.14.2
 sympy==1.13.1
 tokenizers==0.19.1
-torch==2.3.1
 tqdm==4.66.4
 trio==0.26.0
 trio-websocket==0.11.1
