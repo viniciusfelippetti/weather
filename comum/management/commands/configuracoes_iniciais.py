@@ -2,6 +2,7 @@ import datetime
 import shutil
 
 import pandas as pd
+from django.contrib.auth.models import User
 from django.core.management import BaseCommand
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -15,7 +16,9 @@ import zipfile
 import os
 from comum.models import Estacao, HistoricoEstacao
 
-
+def create_admin_user():
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser('admin', 'admin@example.com', '123')
 def convert_utc_to_time(utc_string):
     # Remove o sufixo UTC e espaços extras
     utc_string = utc_string.replace('UTC', '').strip()
@@ -86,6 +89,8 @@ class Command(BaseCommand):
     help = 'Importação dos beneficiários'
 
     def handle(self, *args, **options):
+
+        user = create_admin_user()
 
         options = Options()
         # Configura o diretório de download
