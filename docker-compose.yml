@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    command: >
+      sh -c "python manage.py makemigrations &&
+             python manage.py migrate &&
+             python manage.py configuracoes_iniciais &&
+             python manage.py runserver 0.0.0.0:8000"
+    depends_on:
+      - db
+    networks:
+      - mynetwork
+    ports:
+      - "8000:8000"
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=django-insecure-5tdttw#cmgkauonyz)4@$0*ola9bkuol0jvi)#j6q_)sq1$6n-
+      - DJANGO_ALLOWED_HOSTS=localhost 127.0.0.1 [::1]
+      - SQL_ENGINE=django.db.backends.postgresql
+      - SQL_DATABASE=weather
+      - SQL_USER=postgres
+      - SQL_PASSWORD=123
+      - SQL_HOST=db  # Certifique-se de usar o nome do serviço do banco de dados
+      - SQL_PORT=5432
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: weather
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 123
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
