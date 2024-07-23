@@ -14,7 +14,7 @@ class HistoricoEstacaoSerializer(serializers.ModelSerializer):
         ]
 
 class EstacaoSerializer(serializers.ModelSerializer):
-    historico_estacao = HistoricoEstacaoSerializer(many=True, write_only=True)
+    historico_estacao = HistoricoEstacaoSerializer(many=True, write_only=True, required=False)
 
     class Meta:
         model = Estacao
