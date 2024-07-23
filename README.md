@@ -36,7 +36,7 @@
     </clipboard-copy>
   </div></div>
 
-  <b>3º Rodar Comando</b> <i>baixa as versões mais recentes de todos os pacotes, classes e bibliotecas, recarrega e atualizar o arquivo de autoload.</i>
+  <b>3º Rodar Comando</b> <i>Cria os containers do banco e do app, e roda todos os comando necessários para início do projeto (instala os requirements, roda o arquivo configuracoes_iniciais, ...)</i>
 <div class="snippet-clipboard-content notranslate position-relative overflow-auto"><pre class="notranslate"><code>docker-compose up
 </code></pre><div class="zeroclipboard-container">
     <clipboard-copy aria-label="Copy" class="ClipboardButton btn btn-invisible js-clipboard-copy m-2 p-0 tooltipped-no-delay d-flex flex-justify-center flex-items-center" data-copy-feedback="Copied!" data-tooltip-direction="w" value="composer require staudenmeir/eloquent-has-many-deep:&quot;^1.7&quot;" tabindex="0" role="button">
