@@ -6,7 +6,12 @@ from comum.models import Estacao, HistoricoEstacao
 class HistoricoEstacaoSerializer(serializers.ModelSerializer):
     class Meta:
         model = HistoricoEstacao
-        fields = '__all__'
+        fields = [
+            'estacao', 'data', 'hora', 'precipitacao', 'pressao', 'pressao_maxima', 'pressao_minima',
+            'radiacao', 'temperatura', 'temperatura_minima', 'temperatura_maxima',
+            'umidade', 'umidade_minima', 'umidade_maxima', 'vento_rajada_maxima',
+            'vento_velocidade_horaria'
+        ]
 
 class EstacaoSerializer(serializers.ModelSerializer):
     historico_estacao = HistoricoEstacaoSerializer(many=True, write_only=True)
