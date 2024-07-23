@@ -9,7 +9,6 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from statsmodels.tsa.arima.model import ARIMA
 import pandas as pd
 import numpy as np
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 from comum.api.serializers import EstacaoSerializer, HistoricoEstacaoSerializer
 from comum.models import Estacao, HistoricoEstacao
